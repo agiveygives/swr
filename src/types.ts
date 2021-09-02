@@ -2,7 +2,6 @@ export type Fetcher<Data> = (...args: any) => Data | Promise<Data>
 
 // Configuration types that are only used internally, not exposed to the user.
 export interface InternalConfiguration {
-  cache: Cache
   mutate: ScopedMutator
 }
 
@@ -11,6 +10,7 @@ export interface PublicConfiguration<
   Error = any,
   Fn extends Fetcher<Data> = Fetcher<Data>
 > {
+  cache: Cache
   errorRetryInterval: number
   errorRetryCount?: number
   loadingTimeout: number
